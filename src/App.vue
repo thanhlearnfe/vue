@@ -1,102 +1,83 @@
-<template>
-  <div class="common-layout">
-    <el-container>
-      <el-header>
-        <img style="width: 100%" src="./assets/imgs/banner.png" fit="cover" />
-      </el-header>
-      <el-main>
-        <input
-          type="search"
-          class="search"
-          placeholder="Tìm kiếm sản phẩm"
-          @keyup="search(this)"
-          v-model="keySearch"
-        />
-        <el-button style="margin-left:30px" type="primary" @click="openForm = true" >Login</el-button>
-        <el-button style="margin-left:30px" type="primary"><RouterLink to="/">Home  </RouterLink></el-button>
-        <el-button style="margin-left:30px" type="primary"  ><RouterLink to="/cart">Cart</RouterLink></el-button>
-
-        
-        <Form :isShow="openForm" @isShow="update" />
-        <RouterView />
-      </el-main>
-    </el-container>
-  </div>
-</template>
-<script >
+<script setup>
 import { RouterLink, RouterView } from 'vue-router'
-import Form from "./components/Form.vue";
-
-export default {
-  data() {
-    return {
-      keySearch:'',
-      openForm:false,
-    };
-  },
-  methods: {
-    search() {
-      let itemNames = document.querySelectorAll(".item-name");
-      let items = document.querySelectorAll(".item");
-      const key = this.keySearch.toLowerCase();
-      // console.log(key);
-      
-      itemNames.forEach(function(e,index){
-        // console.log((e.innerText.toLowerCase()));
-        // console.log(key.toLowerCase());
-        if(e.innerText.toLowerCase().includes(key.toLowerCase())){
-            items[index].classList.remove('hide');
-        }else{
-          items[index].classList.add('hide');
-        }
-      })
-    },
-    update(e) {
-      this.openForm = e;
-    }
-   
-  },
- 
-  components: {
-    // Product,
-    Form
-  },
-};
+import Detail from './components/Detail.vue'
 </script>
 
-<style >
-a{
-  text-decoration: none;
-  color: #fff;
+<template>
+  <header>
+
+    <div class="wrapper">
+
+      <nav>
+        <RouterLink to="/">Home</RouterLink>
+        <!-- <RouterLink to="/about">About</RouterLink> -->
+      </nav>
+    </div>
+  </header>
+
+  <RouterView />
+</template>
+
+<style scoped>
+header {
+  line-height: 1.5;
+  max-height: 100vh;
 }
-.el-header {
-  height: inherit;
+
+.logo {
+  display: block;
+  margin: 0 auto 2rem;
+}
+
+nav {
   width: 100%;
-  padding: 0;
-}
-.item {
+  font-size: 12px;
   text-align: center;
-  margin-bottom: 60px;
-  width: 80%;
-  border: 1px solid #ccc;
-  padding-bottom: 10px;
+  margin-top: 2rem;
 }
-.item.hide{
-  display: none;
+
+nav a.router-link-exact-active {
+  color: var(--color-text);
 }
-.btn-add-cart {
-  border-radius: 20px;
-  height: 40px;
+
+nav a.router-link-exact-active:hover {
+  background-color: transparent;
 }
-input.search {
-  width: 800px;
-  height: 40px;
-  border-radius: 9px;
+
+nav a {
+  display: inline-block;
+  padding: 0 1rem;
+  border-left: 1px solid var(--color-border);
 }
-/* .demo-ruleForm{
-  display: none;
+
+nav a:first-of-type {
+  border: 0;
 }
-.demo-ruleForm.active{
-  display: block; */
-/* } */
+
+@media (min-width: 1024px) {
+  header {
+    display: flex;
+    place-items: center;
+    padding-right: calc(var(--section-gap) / 2);
+  }
+
+  .logo {
+    margin: 0 2rem 0 0;
+  }
+
+  header .wrapper {
+    display: flex;
+    place-items: flex-start;
+    flex-wrap: wrap;
+  }
+
+  nav {
+    text-align: left;
+    margin-left: -1rem;
+    font-size: 1rem;
+
+    padding: 1rem 0;
+    margin-top: 1rem;
+  }
+}
 </style>
