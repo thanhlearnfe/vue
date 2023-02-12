@@ -21,7 +21,8 @@ npm run dev
 
 ```sh
 npm install element-plus --save
-
+```
+```sh
 // main.ts
 import { createApp } from 'vue'
 import ElementPlus from 'element-plus'
@@ -37,7 +38,8 @@ app.mount('#app')
 ## Project Setup
 ```sh
 npm install --save axios vue-axios
-
+```
+```sh
 import axios from "axios";
 import VueAxios from "vue-axios";
 
@@ -47,7 +49,8 @@ app.use(VueAxios, axios);
 ## Vuex
 ```sh
 npm install vuex@next --save
-
+```
+```sh
 import { createStore } from 'vuex'
 
 // Create a new store instance.
