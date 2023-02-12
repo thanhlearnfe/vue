@@ -2,6 +2,13 @@
 
 This template should help get you started developing with Vue 3 in Vite.
 
+### Use with
+
+- **Vuex**
+- **Elenment UI**
+- **Axios**
+- **Router**
+- **Json Server**
 ## Project Setup
 ```sh
 npm create vue@3
