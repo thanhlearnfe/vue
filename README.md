@@ -1,16 +1,11 @@
-# vuex
+# Ban-hang
 
 This template should help get you started developing with Vue 3 in Vite.
 
-## Recommended IDE Setup
-
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
-
-## Customize configuration
-
-See [Vite Configuration Reference](https://vitejs.dev/config/).
-
 ## Project Setup
+```sh
+npm create vue@3
+```
 
 ```sh
 npm install
@@ -22,8 +17,66 @@ npm install
 npm run dev
 ```
 
+### Element UI
+
+```sh
+npm install element-plus --save
+
+// main.ts
+import { createApp } from 'vue'
+import ElementPlus from 'element-plus'
+import 'element-plus/dist/index.css'
+import App from './App.vue'
+
+const app = createApp(App)
+
+app.use(ElementPlus)
+app.mount('#app')   
+```
+
+## Project Setup
+```sh
+npm install --save axios vue-axios
+
+import axios from "axios";
+import VueAxios from "vue-axios";
+
+app.use(VueAxios, axios);
+```
+
+## Vuex
+```sh
+npm install vuex@next --save
+
+import { createStore } from 'vuex'
+
+// Create a new store instance.
+const store = createStore({
+  state () {
+    return {
+      count: 0
+    }
+  },
+  mutations: {
+    increment (state) {
+      state.count++
+    }
+  }
+})
+const app = createApp({ /* your root component */ })
+app.use(store)
+```
+
 ### Compile and Minify for Production
 
 ```sh
 npm run build
 ```
+
+### Json Server
+
+```sh
+json-server --watch db.json
+```
+
+
