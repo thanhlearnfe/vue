@@ -4,9 +4,9 @@ This template should help get you started developing with Vue 3 in Vite.
 
 ### Use with
 
-- **Vuex**
-- **Elenment UI**
-- **Axios**
+- **Vuex(https://vuex.vuejs.org/guide/)**
+- **Elenment UI(https://element-plus.org/en-US/guide/quickstart.html)**
+- **Axios(https://www.npmjs.com/package/vue-axios)**
 - **Router**
 - **Json Server**
 ## Project Setup
